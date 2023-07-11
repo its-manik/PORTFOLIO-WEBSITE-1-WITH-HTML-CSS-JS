@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const url = 'https://api.unionavatars.com/validation/head'
+
+        const myHeaders = new Headers()
+        myHeaders.append('Authorization', 'Bearer <ACCESS_TOKEN>')
+        myHeaders.append('Content-Type', 'application/json')
+
+        const createAvatar = () => {
+            const res = fetch(url, {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: JSON.stringify({
+                        'img': '<IMAGE_BASE64_STRING>'
+                    })
+                })
+                .then(res => res.json())
+                .then(res => console.log(res))
+        }
+        createAvatar()
+    </script>
+</body>
+
+</html>
